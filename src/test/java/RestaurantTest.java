@@ -49,6 +49,15 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<Total Price calc>>>>>>>>>>>>>>
+    @Test
+    public void check_item_total_for_selected_items_from_menu() {
+        List<String> itemSelected = Arrays.asList("Vegetable lasagne","Sweet corn soup");
+        //119+269 = 388
+        assertEquals(388,restaurant.totalValue(itemSelected));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<Total Price calc>>>>>>>>>>>>>>
+
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
@@ -69,14 +78,7 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    //<<<<<<<<<<<<<<<<<<<<<<<<<<Total Price calc>>>>>>>>>>>>>>
-    @Test
-    public void check_item_total_for_selected_items_from_menu() {
-        List<String> itemSelected = Arrays.asList("Vegetable lasagne","Vegetable lasagne");
-        //119+269 = 388
-        assertEquals(388,restaurant.totalValue(itemSelected));
-    }
-    //<<<<<<<<<<<<<<<<<<<<<<<<<<Total Price calc>>>>>>>>>>>>>>
+
 
 
 }

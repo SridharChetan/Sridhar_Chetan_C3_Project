@@ -20,33 +20,36 @@ public class Restaurant {
 
     public boolean isRestaurantOpen() {
         //DELETE ABOVE STATEMENT AND WRITE CODE HERE
-        if (getCurrentTime().compareTo(openingTime)>0 && getCurrentTime().compareTo(closingTime)<0)
+        if (getCurrentTime().compareTo(openingTime) > 0 && getCurrentTime().compareTo(closingTime) < 0)
             return true;
         else
             return false;
     }
 
-    public LocalTime getCurrentTime(){ return  LocalTime.now(); }
+    public LocalTime getCurrentTime() {
+        return LocalTime.now();
+    }
 
     public List<Item> getMenu() {
-            if (menu !=null && !menu.isEmpty())
-               return  menu;
-            else
-                return  null;
+        if (menu != null && !menu.isEmpty())
+            return menu;
+        else
+            return null;
     }
-    private Item findItemByName(String itemName){
-        for(Item item: menu) {
-            if(item.getName().equals(itemName))
+
+    private Item findItemByName(String itemName) {
+        for (Item item : menu) {
+            if (item.getName().equals(itemName))
                 return item;
         }
         return null;
     }
 
     public void addToMenu(String name, int price) {
-        Item newItem = new Item(name,price);
+        Item newItem = new Item(name, price);
         menu.add(newItem);
     }
-    
+
     public void removeFromMenu(String itemName) throws itemNotFoundException {
 
         Item itemToBeRemoved = findItemByName(itemName);
@@ -55,12 +58,13 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
-    public void displayDetails(){
-        System.out.println("Restaurant:"+ name + "\n"
-                +"Location:"+ location + "\n"
-                +"Opening time:"+ openingTime +"\n"
-                +"Closing time:"+ closingTime +"\n"
-                +"Menu:"+"\n"+getMenu());
+
+    public void displayDetails() {
+        System.out.println("Restaurant:" + name + "\n"
+                + "Location:" + location + "\n"
+                + "Opening time:" + openingTime + "\n"
+                + "Closing time:" + closingTime + "\n"
+                + "Menu:" + "\n" + getMenu());
 
     }
 
@@ -73,6 +77,15 @@ public class Restaurant {
     //Since item is always from the menu hence no exception to be raised.
     public int totalValue(List<String> itemNames) {
         int totalPrice = 0;
+        if (itemNames != null) {
+            for (String name : itemNames) {
+                for (Item item : menu) {
+                    if (item.getName().equals(name))
+                        totalPrice = totalPrice + item.getPrice();
+                }
+                System.out.println(totalPrice);
+            }
+        }
         return totalPrice;
     }
 }
