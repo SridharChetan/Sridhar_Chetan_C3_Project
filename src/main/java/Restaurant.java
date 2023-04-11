@@ -68,4 +68,11 @@ public class Restaurant {
         return name;
     }
 
+    //Adding the new method for calculating the total price of the order
+    //  <methodName>(<list of itemNames>)
+    //Since item is always from the menu hence no exception to be raised.
+    public int totalValue(List<String> itemNames) {
+        int totalPrice = 0;
+        return totalPrice;
+    }
 }
